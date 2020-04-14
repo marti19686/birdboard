@@ -23,8 +23,8 @@ class Project extends Model
         return $this->hasMany(Task::class);
     }
 
-    public function addTask()
+    public function addTask($body)
     {
-        return $this->tasks()->create(compact('body'));
+        return $this->tasks()->create($body);
     }
 }
