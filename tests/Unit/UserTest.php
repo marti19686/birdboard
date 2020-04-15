@@ -3,7 +3,8 @@
 namespace Tests\Unit;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
+use App\User;
 use Illuminate\Database\Eloquent\Collection;
 
 class UserTest extends TestCase
@@ -15,7 +16,7 @@ class UserTest extends TestCase
      */
     public function has_projects()
     {
-        $user = factory('\App\User::class')->create();
+        $user = factory(User::class)->create();
 
         $this->assertInstanceOf(Collection::class, $user->projects);
 

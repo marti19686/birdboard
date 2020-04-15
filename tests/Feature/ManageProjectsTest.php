@@ -38,9 +38,7 @@ class ManageProjectsTest extends TestCase
 
         $response = $this->post('/projects', $attributes);
 
-        $project = Project::where($attributes)->first();
-
-        $response->assertRedirect($project->path());
+        $response->assertRedirect(Project::where($attributes)->first()->path());
 
         $this->assertDatabaseHas('projects', $attributes);
 

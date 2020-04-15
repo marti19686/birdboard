@@ -2,10 +2,10 @@
 
 namespace Tests\Unit;
 
+use Tests\TestCase;
 use App\Project;
 use App\Task;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use PHPUnit\Framework\TestCase;
 
 class TaskTest extends TestCase
 {
@@ -25,6 +25,6 @@ class TaskTest extends TestCase
     {
         $task = factory(Task::class)->create();
 
-        $this->assertEquals('/projects/', $task->project->id. '/tasks'. $task->id, $task->path());
+        $this->assertEquals('/projects/'. $task->project->id. '/tasks/'. $task->id, $task->path());
     }
 }
